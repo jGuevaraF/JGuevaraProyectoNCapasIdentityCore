@@ -1,0 +1,31 @@
+﻿@model ML.Usuario
+<h1 class="text-center">Formulario Usuario</h1>
+<hr />
+
+<div class="text-center">
+    <form asp-controller="Usuario" asp-action="Form" method="POST" class="col-md-6 offset-md-3">
+        <input hidden name="IdUsuario" value="@Model.IdUsuario" />
+        <div class="form-group m-2">
+            <label for="nombre" class="mb-1"><i class="fas fa-user"></i> Nombre:</label>
+            <input type="text" id="nombre" name="nombre" value="@Model.Nombre" class="form-control" required>
+        </div>
+        <div class="form-group m-2">
+            <label for="apellidoPaterno" class="mb-1"><i class="fas fa-user"></i> Apellido Paterno:</label>
+            <input type="text" id="apellidoPaterno" name="apellidoPaterno" value="@Model.ApellidoPaterno" class="form-control" required>
+        </div>
+        <div class="form-group m-2">
+            <label for="apellidoMaterno" class="mb-1"><i class="fas fa-user"></i> Apellido Materno:</label>
+            <input type="text" id="apellidoMaterno" name="apellidoMaterno" value="@Model.ApellidoMaterno" class="form-control" required>
+        </div>
+        <div class="form-group m-2">
+            <label for="correo" class="mb-1"><i class="fas fa-user"></i> Correo:</label>
+            <input type="text" id="correo" name="correo" value="@Model.Correo" class="form-control" required>
+        </div>
+        <div class="form-group m-2">
+            <label for="password" class="mb-1"><i class="fas fa-user"></i> PassWord:</label>
+            <input type="password" id="password" name="password" value="@Model.Password" class="form-control" required>
+        </div>
+
+        <button type="submit" class="btn btn-success"><i class="fas fa-save"></i> Guardar</button>
+    </form>
+</div>
