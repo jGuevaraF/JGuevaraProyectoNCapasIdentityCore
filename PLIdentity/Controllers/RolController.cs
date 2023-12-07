@@ -6,7 +6,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace PLIdentity.Controllers
 {
-    [Authorize(Roles = "Administrador")]
+    [Authorize(Roles = "Administrador, Usuario")]
     public class RolController : Controller
     {
         private RoleManager<IdentityRole> roleManager;
@@ -18,13 +18,6 @@ namespace PLIdentity.Controllers
         [HttpGet]
         public IActionResult GetAll()
         {
-            ML.Result result = BL.IdentityUser.GetAll();
-            ML.UserIdentity user = new ML.UserIdentity();
-            if (result.Correct)
-            {
-                user.IdentityUsers = result.Objects;
-            }
-            user.IdentityUsers.AddRange(roleManager.Roles.ToList());
             var Roles = roleManager.Roles.ToList();
             return View(Roles);
         }
@@ -64,16 +57,6 @@ namespace PLIdentity.Controllers
         [HttpPost]
         public async Task<IActionResult> Form([Required] Microsoft.AspNetCore.Identity.IdentityRole rol)
         {
-
-            //Terminar Update
-
-            //Hace Update
-            //IdentityRole role= new IdentityRole();
-            //role.Id = await roleManager.GetRoleIdAsync(rol);
-            //role.Name = await roleManager.GetRoleNameAsync(rol);
-
-            //await roleManager.UpdateAsync(role);
-            //return View(rol);
 
             if (ModelState.IsValid)
             {

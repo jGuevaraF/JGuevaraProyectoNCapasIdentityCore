@@ -22,7 +22,10 @@ namespace BL
                                      IdUser = user.Id,
                                      UserName = user.UserName
                                  }).ToList();
-                    if(query.Count > 0)
+
+
+
+                    if (query.Count > 0)
                     {
                         result.Objects = new List<object>();
                         foreach(var item in query)
